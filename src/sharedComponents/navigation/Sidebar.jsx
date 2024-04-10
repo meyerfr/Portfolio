@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { HiChevronDoubleLeft as CollapseIcon, HiChevronDoubleRight as ExpandIcon } from "react-icons/hi2"
 import styled from "styled-components"
+// eslint-disable-next-line import/no-unresolved
+import { faHouse, faBriefcase, faUser, faEnvelope, faSun, faAt } from "@awesome.me/kit-aaa9bcafa6/icons/classic/thin"
+// eslint-disable-next-line import/no-unresolved
+import { faLinkedIn, faGithub } from "@awesome.me/kit-aaa9bcafa6/icons/brands/thin"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { bottomNavigationItems, NavigationItem, topNavigationItems } from "./navigation.helpers"
 
@@ -60,7 +65,7 @@ export const SidebarItemList = styled.ul`
 	}
 `
 
-const SidebarContainer = styled.div`
+const SidebarWrapper = styled.div`
 	width: 0;
 	height: 100%;
 	background: ${props => props.theme.colors.white};
@@ -102,48 +107,9 @@ const SidebarContainer = styled.div`
 	}
 `
 
-const ToggleSidebarButton = styled.button`
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+const Profile = styled.div``
 
-	position: absolute;
-	top: 56px;
-	right: 0;
-	transform: translate(50%, 100%);
-	z-index: 1200;
-	display: none;
-	width: 28px;
-	height: 28px;
-	background: ${props => props.theme.colors.primary};
-	color: ${props => props.theme.colors.white};
-	border-radius: ${props => props.theme.spacing[1]};
-	align-items: center;
-	justify-content: center;
-	@media ${device.laptop} {
-		top: 64px;
-		display: flex;
-		width: 32px;
-		height: 32px;
-		svg,
-		img {
-			min-width: ${props => props.theme.fontSize.l};
-			min-height: ${props => props.theme.fontSize.l};
-		}
-	}
-	@media ${device.laptop} {
-		width: 40px;
-		height: 40px;
-		top: 72px;
-		svg,
-		img {
-			min-width: ${props => props.theme.fontSize.xl};
-			min-height: ${props => props.theme.fontSize.xl};
-		}
-	}
-`
+const NavItem = styled.div``
 
 const Sidebar = () => {
 	const [isSidebarExpanded, setSidebarExpanded] = useState(window.innerWidth >= 1024)
@@ -162,28 +128,39 @@ const Sidebar = () => {
 	}
 
 	return (
-		<>
-			<SidebarContainer $expanded={isSidebarExpanded}>
-				<div className="logoPlacing">
-					<Logo />
+		<SidebarWrapper $expanded={isSidebarExpanded}>
+			<Profile>
+				<Logo />
+				<div>
+					<span>Fritz Meyer</span>
+					<span>Product Developer</span>
 				</div>
-				<ToggleSidebarButton onClick={toggleSidebar}>
-					{isSidebarExpanded ? <CollapseIcon /> : <ExpandIcon />}
-				</ToggleSidebarButton>
-				<SidebarListWrapper>
-					<SidebarItemList>
-						{topNavigationItems.map((item, i) => (
-							<NavigationItem key={i} {...item} />
-						))}
-					</SidebarItemList>
-					<SidebarItemList>
-						{bottomNavigationItems.map((item, i) => (
-							<NavigationItem key={i} {...item} />
-						))}
-					</SidebarItemList>
-				</SidebarListWrapper>
-			</SidebarContainer>
-		</>
+			</Profile>
+			<div className="inline-icons">
+				<FontAwesomeIcon icon={faAt} />
+				<FontAwesomeIcon icon={faLinkedIn} />
+				<FontAwesomeIcon icon={faGithub} />
+			</div>
+			<div>
+				<NavItem>
+					<FontAwesomeIcon icon={faHouse} />
+					<span>Homepage</span>
+				</NavItem>
+				<NavItem>
+					<FontAwesomeIcon icon={faBriefcase} />
+					<span>Projects</span>
+				</NavItem>
+				<NavItem>
+					<FontAwesomeIcon icon={faUser} />
+					<span>About</span>
+				</NavItem>
+				<NavItem>
+					<FontAwesomeIcon icon={faEnvelope} />
+					<span>Contact</span>
+				</NavItem>
+			</div>
+			<FontAwesomeIcon icon={faSun} className={"modeSwitch"} />
+		</SidebarWrapper>
 	)
 }
 

@@ -7,11 +7,13 @@ import { device } from "../../util/breakpoints"
 // We'll define our styled components here
 const NavbarContainer = styled.div`
 	display: flex;
-	align-items: center;
+	flex: 1;
+	height: 80px;
+	padding: 0px ${theme => theme.spacing[3]};
 	justify-content: space-between;
-	background: #fff;
-	padding: 0 20px;
-
+	align-items: center;
+	gap: ${theme => theme.spacing[4]};
+	background: var(--surface-surface-primary, #f4f5f5); // todo change color to theme background
 	@media ${device.laptop} {
 		display: none;
 	}
