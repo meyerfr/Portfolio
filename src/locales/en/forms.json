@@ -1,0 +1,110 @@
+{
+  "labels": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "alias": "Alias",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "username": "Username",
+    "authCode": "Auth Code",
+    "dob": "Date of birth",
+    "gender": "Gender",
+    "terms": "I accept the <0>general terms and conditions</0> and the <1>privacy policy</1> of we.together",
+    "search": "Search",
+    "passwordCurrent": "Current Password",
+    "passwordNew": "New Password"
+  },
+  "placeholders": {
+    "firstName": "Enter your first name",
+    "lastName": "Enter your last name",
+    "alias": "Enter your alias",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "username": "Choose a username",
+    "search": "Search...",
+    "currentPassword": "Enter your current password",
+    "newPassword": "Enter a new password",
+    "confirmNewPassword": "Reenter new password"
+  },
+  "groupFields": {
+    "labels": {
+      "name": "Name",
+      "description": "Description",
+      "selfModerated": "Do you want to moderate this group?",
+      "img": "Group cover image"
+    },
+    "placeholders": {
+      "name": "Enter group name",
+      "description": "Enter a description…"
+    }
+  },
+  "meetingFields": {
+    "labels": {
+      "title": "What is the meeting title?",
+      "recurrenceDays": "On which days should this meeting happen?",
+      "recurrenceType": "How frequently should this meeting happen?",
+      "startDate": "When should the meeting recurrence begin?",
+      "time": "At what time should the meetings take place?",
+      "duration": "How long should the meeting last?"
+    },
+    "placeholders": {
+      "title": "Enter a meeting title",
+      "description": "Enter a description…"
+    }
+  },
+  "gender_male": "Male",
+  "gender_female": "Female",
+  "gender_divers": "Divers",
+  "duration_count": "{{count}} Minutes",
+  "hints": {
+    "password": "Password must be at least 8 characters",
+    "email": "Please enter a valid email address"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Email address is invalid",
+    "passwordMismatch": "Passwords do not match",
+    "minLength": "Min {{length}} characters",
+    "minMeetings": "Min {{length}} meeting is required",
+    "maxLength": "Max {{length}} characters",
+    "minAge": "You must be at least {{minAge}} old",
+    "minDate": "Must be on or after {{minDate}}",
+    "terms": "Terms must be accepted",
+    "isNumber": "Must be a number",
+    "includesNumber": "Must include a number",
+    "includesCapital": "Must include a capital letter",
+    "minSelected": "Must select at least {{length}}",
+    "maxSelected": "You can only select {{length}}",
+    "invalidEmailOrPassword": "Invalid email or password"
+  },
+  "chooseOne": "Select one of the following options",
+  "chooseMin": "Select one or more of the following options",
+  "actions": {
+    "chooseImg": "Choose Image",
+    "chooseOtherImg": "Choose other Image",
+    "uploadImg": "Upload custom Image"
+  },
+  "recurrenceFields": {
+    "none": "Only this Once",
+    "weekly": "Every Week",
+    "bi-weekly": "Every 2nd Week",
+    "monthly": "Every Month"
+  },
+  "firstMeetingTitle": "Group kick-off",
+  "groupCreateSteps": {
+    "header1": "Choose Group topic",
+    "header2": "Enter Group information",
+    "header3": "Plan Group meetings",
+    "header4": "Download Group program",
+    "header5": "Adjust Group moderation settings",
+    "header6": "Invite Group members",
+    "desc1": "What's the topic your group handles?",
+    "desc2": "Name and describe your group.",
+    "desc3": "When do you want your group to meet?",
+    "desc4": "Get the prepared program pdf specific to your groups topic.",
+    "desc5": "Do you want to moderate your group yourself?",
+    "desc6": "Share a link to invite the first group members."
+  }
+}

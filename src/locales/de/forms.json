@@ -1,0 +1,47 @@
+{
+  "labels": {
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "alias": "Alias",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "username": "Benutzername",
+    "authCode": "Authentifizierungscode",
+    "dob": "Geburtsdatum",
+    "gender": "Geschlecht",
+    "terms": "Ich akzeptiere die <0>Allgemeinen Geschäftsbedingungen</0> und die <1>Datenschutzerkärung</1> von we.together",
+    "confirmPassword": "Passwort bestätigen",
+    "search": "Suchen"
+  },
+  "placeholders": {
+    "firstName": "Geben Sie Ihren Vornamen ein",
+    "lastName": "Geben Sie Ihren Nachnamen ein",
+    "alias": "Geben Sie Ihren Alias ein",
+    "email": "Geben Sie Ihre E-Mail ein",
+    "password": "Geben Sie Ihr Passwort ein",
+    "confirmPassword": "Bestätigen Sie Ihr Passwort",
+    "username": "Wählen Sie einen Benutzernamen",
+    "search": "Suchen..."
+  },
+  "gender_male": "Männlich",
+  "gender_female": "Weiblich",
+  "gender_divers": "Divers",
+  "hints": {
+    "password": "Das Passwort muss mindestens 8 Zeichen lang sein",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "errors": {
+    "required": "Dieses Feld ist erforderlich",
+    "invalidEmail": "E-Mail-Adresse ist ungültig",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "minLength": "Mindestens {{length}} Zeichen",
+    "maxLength": "Höchstens {{length}} Zeichen",
+    "minAge": "Sie müssen mindestens {{minAge}} Jahre alt sein",
+    "terms": "Die Geschäftsbedingungen müssen akzeptiert werden",
+    "isNumber": "Muss eine Zahl sein",
+    "includesNumber": "Muss eine Zahl enthalten",
+    "includesCapital": "Muss einen Großbuchstaben enthalten",
+    "minSelected": "Es müssen mindestens {{length}} ausgewählt werden",
+    "maxSelected": "Sie können nur {{length}} auswählen"
+  }
+}

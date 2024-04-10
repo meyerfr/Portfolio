@@ -1,0 +1,90 @@
+{
+  "yes": "Yes",
+  "no": "No",
+  "navigation": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "helpAndFAQs": "Help & FAQs",
+    "myGroups": "My Groups",
+    "findGroup": "Find Group"
+  },
+  "header": {
+    "dashboard": "Dashboard",
+    "profile": "Your Profile",
+    "settings": "Settings",
+    "password": "Password",
+    "danger": "Danger Zone",
+    "deleteAccount": "Delete your Account",
+    "groupOverview": "Groups"
+  },
+  "subheader": {
+    "dashboard": "Welcome to your Dashboard",
+    "profile": "Manage your personal information",
+    "settings": "Adjust your application settings",
+    "password": "Here you can change your password",
+    "danger": "The process can't be undone",
+    "deleteAccount": "All your information will be permanently deleted.",
+    "groupOverview": "Find the group that suits you best and join regular meetings."
+  },
+  "footer": {
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "actions": {
+    "save": "Save",
+    "saveChanges": "Save changes",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "reset": "Reset",
+    "delete": "Delete",
+    "edit": "Edit",
+    "update": "Update",
+    "viewMore": "View More",
+    "search": "Search",
+    "addNew": "Add New",
+    "logOut": "Log Out",
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip",
+    "logout": "Logout",
+    "addMeeting": "Add Meeting",
+    "changePassword": "Change password",
+    "deleteAccount": "Delete my account",
+    "addGroup": "Add Group"
+  },
+  "errors": {
+    "networkError": "Network error, please try again later",
+    "somethingWentWrong": "Something went wrong, please try again later"
+  },
+  "profile": {
+    "greeting": "Hello, {username}!"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "noDataAvailable": "No data available"
+  },
+  "groupTopics_depression": "Depression",
+  "groupTopics_stress&burnout": "Stress & Burnout",
+  "groupTopics_panic&fear": "Panic & Fear",
+  "groupTopics_grief": "Grief",
+  "groupTopics_eatingDisorder": "Eating Disorder",
+  "groupTopics_addiction": "Addiction",
+  "groupTopics_relativesIllness": "Relatives Illness",
+  "groupTopics_chronicIllness": "Chronic Illness",
+  "groupTopics_other": "Other",
+  "experience_never": "No, I never participated",
+  "experience_little": "A little, I have participated before",
+  "experience_much": "Yes, I participate regularly",
+  "experience_moderated": "Yes, I organised groups before",
+  "program": "Program",
+  "meeting": "Meeting",
+  "minAbbreviation": "min",
+  "members": "members",
+  "weekly": "Weekly",
+  "bi-weekly": "Bi-weekly",
+  "monthly": "Monthly",
+  "searchGroupPlaceholder": "Search groups..."
+}

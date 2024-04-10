@@ -1,0 +1,81 @@
+{
+  "yes": "Ja",
+  "no": "Nein",
+  "navigation": {
+    "dashboard": "Armaturenbrett",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "helpAndFAQs": "Hilfe & FAQs"
+  },
+  "header": {
+    "dashboard": "Armaturenbrett",
+    "profile": "Profil",
+    "settings": "Einstellungen"
+  },
+  "subheader": {
+    "dashboard": "Willkommen zu deinem Armaturenbrett",
+    "profile": "Verwalte deine persönlichen Informationen",
+    "settings": "Passe deine Anwendungseinstellungen an"
+  },
+  "footer": {
+    "aboutUs": "Über uns",
+    "contact": "Kontakt",
+    "privacyPolicy": "Datenschutzbestimmungen",
+    "termsOfService": "Nutzungsbedingungen"
+  },
+  "actions": {
+    "save": "Speichern",
+    "submit": "Einreichen",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "update": "Aktualisieren",
+    "viewMore": "Mehr ansehen",
+    "search": "Suchen",
+    "addNew": "Neu hinzufügen",
+    "logOut": "Ausloggen",
+    "next": "Weiter",
+    "back": "Zurück",
+    "skip": "Überspringen"
+  },
+  "errors": {
+    "networkError": "Netzwerkfehler, bitte versuche es später noch einmal",
+    "somethingWentWrong": "Etwas ist schiefgelaufen, bitte versuche es später noch einmal"
+  },
+  "profile": {
+    "greeting": "Hallo, {username}!"
+  },
+  "messages": {
+    "loading": "Laden...",
+    "noDataAvailable": "Keine Daten verfügbar"
+  },
+  "groupTopics": {
+    "depression": "Depression",
+    "stress&burnout": "Stress & Burnout",
+    "panic&fear": "Panik & Angst",
+    "grief": "Trauer",
+    "eatingDisorder": "Essstörung",
+    "addiction": "Sucht",
+    "relativesIllness": "Angehörige von Kranken",
+    "chronicIllness": "Chronische Krankheit",
+    "other": "Andere"
+  },
+  "experience": {
+    "never": "Nein, ich habe noch nie teilgenommen",
+    "little": "Ein wenig, ich habe schon einmal teilgenommen",
+    "much": "Ja, ich nehme regelmäßig teil",
+    "moderated": "Ja, ich habe bereits Gruppen organisiert"
+  },
+  "weekDay": {
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "sun": "So"
+  },
+  "weekly": "Wöchentlich",
+  "bi-weekly": "Alle zwei Wochen",
+  "monthly": "Monatlich"
+}
