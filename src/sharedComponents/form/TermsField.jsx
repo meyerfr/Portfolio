@@ -8,7 +8,7 @@ const StyledTermsField = styled.label`
 	display: flex;
 	align-items: center;
 	gap: ${props => props.theme.spacing[1.5]};
-	color: ${props => (!props.$hasError ? props.theme.textColors.primary : props.theme.colors.danger)};
+	color: ${props => (!props.$hasError ? props.theme.text.primary : props.theme.colors.danger)};
 `
 
 const TermsField = ({ input, type, meta: { touched, error } }) => {

@@ -25,7 +25,7 @@ const StyledProgramDownloadWrapper = styled.div`
 	}
 	a {
 		text-decoration: none;
-		color: ${props => props.theme.textColors.primary};
+		color: ${props => props.theme.text.primary};
 		cursor: pointer;
 		.input span {
 			flex: 1;

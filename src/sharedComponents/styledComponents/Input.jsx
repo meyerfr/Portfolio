@@ -7,41 +7,41 @@ const getSizeStyles = (size, theme) => {
 		case "small":
 			return css`
 				gap: ${props => props.theme.spacing[1]};
-				font-size: ${theme.fontSize.s};
+				font-size: ${theme.font.s};
 				.input {
 					padding: ${theme.spacing[1]};
 					${theme.spacing[3]};
 					.prefix,
 					.suffix {
-						height: ${theme.fontSize.s};
-						width: ${theme.fontSize.s};
+						height: ${theme.font.s};
+						width: ${theme.font.s};
 					}
 				}
 				@media ${device.laptop} {
 					.input .prefix,
 					.suffix {
-						height: ${theme.fontSize.m};
-						width: ${theme.fontSize.m};
+						height: ${theme.font.m};
+						width: ${theme.font.m};
 					}
 				}
 			`
 		case "large":
 			return css`
-				font-size: ${theme.fontSize.l};
+				font-size: ${theme.font.l};
 				.input {
 					padding: ${theme.spacing[2]};
 					${theme.spacing[4]};
 					.prefix,
 					.suffix {
-						height: ${theme.fontSize.l};
-						width: ${theme.fontSize.l};
+						height: ${theme.font.l};
+						width: ${theme.font.l};
 					}
 				}
 				@media ${device.laptop} {
 					.input .prefix,
 					.suffix {
-						height: ${theme.fontSize.l};
-						width: ${theme.fontSize.l};
+						height: ${theme.font.l};
+						width: ${theme.font.l};
 					}
 				}
 			`
@@ -53,8 +53,8 @@ const getSizeStyles = (size, theme) => {
 					padding: ${theme.spacing[2]} ${theme.spacing[3]};
 					.prefix,
 					.suffix {
-						height: ${theme.fontSize.m};
-						width: ${theme.fontSize.m};
+						height: ${theme.font.m};
+						width: ${theme.font.m};
 					}
 				}
 				.MuiInputBase-root {
@@ -66,8 +66,8 @@ const getSizeStyles = (size, theme) => {
 				@media ${device.laptop} {
 					.input .prefix,
 					.suffix {
-						height: ${theme.fontSize.l};
-						width: ${theme.fontSize.l};
+						height: ${theme.font.l};
+						width: ${theme.font.l};
 					}
 				}
 			`
@@ -114,13 +114,13 @@ export const InputWrapper = styled.div.attrs(props => ({
 	gap: ${props => props.theme.spacing[1.5]};
 	align-self: stretch;
 	label {
-		color: ${props => props.theme.textColors.primary};
+		color: ${props => props.theme.text.primary};
 		font-weight: 400;
 		line-height: 150%;
 	}
 	.hint,
 	.error {
-		font-size: ${props => props.theme.fontSize.xs};
+		font-size: ${props => props.theme.font.xs};
 		color: ${props => props.theme.colors.gray};
 	}
 	.fieldLink {
@@ -136,7 +136,7 @@ export const InputWrapper = styled.div.attrs(props => ({
 		align-self: stretch;
 		a.input:has(input[type="text"]) {
 			cursor: pointer;
-			color: ${props => props.theme.textColors.primary};
+			color: ${props => props.theme.text.primary};
 		}
 		.input {
 			display: flex;
@@ -165,7 +165,7 @@ export const InputWrapper = styled.div.attrs(props => ({
 			input,
 			textarea {
 				border: none;
-				color: ${props => props.theme.textColors.primary};
+				color: ${props => props.theme.text.primary};
 				width: 100%;
 				background: none;
 				appearance: none;

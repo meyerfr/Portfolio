@@ -7,26 +7,26 @@ const getSizeStyles = (size, theme) => {
 		case "small":
 			return css`
 				padding: ${theme.spacing[0]} ${theme.spacing[2]};
-				font-size: ${theme.fontSize.s};
+				font-size: ${theme.font.s};
 				@media ${device.laptop} {
-					font-size: ${theme.fontSize.m};
+					font-size: ${theme.font.m};
 				}
 			`
 		case "large":
 			return css`
 				padding: ${theme.spacing[1.5]} ${theme.spacing[3]};
-				font-size: ${theme.fontSize.l};
+				font-size: ${theme.font.l};
 				@media ${device.laptop} {
-					font-size: ${theme.fontSize.xl};
+					font-size: ${theme.font.xl};
 				}
 			`
 		case "medium": // fall-through case as 'medium' will be the default size
 		default:
 			return css`
 				padding: ${theme.spacing[1]} ${theme.spacing[3]};
-				font-size: ${theme.fontSize.m};
+				font-size: ${theme.font.m};
 				@media ${device.laptop} {
-					font-size: ${theme.fontSize.l};
+					font-size: ${theme.font.l};
 				}
 			`
 	}
@@ -132,7 +132,7 @@ const getTypeStyles = (type, theme) => {
 		default:
 			return css`
 				background: ${theme.colors.gray200};
-				color: ${theme.textColors.primary};
+				color: ${theme.text.primary};
 
 				&:hover,
 				&:focus {

@@ -76,7 +76,7 @@ const ProjectImg = ({ input, label, options }) => {
 	}
 
 	const toggleImgOptions = e => {
-		if (windowWidth < parseInt(screenSize.tablet.replace("px", ""))) {
+		if (windowWidth < screenSize.tablet) {
 			setGalleryOpen(!isGalleryOpen)
 		} else {
 			setShowCarousel(!showCarousel)

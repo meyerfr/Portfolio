@@ -1,73 +1,83 @@
 // First, let's import what we need
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
+import { isMobile } from "react-device-detect"
+// eslint-disable-next-line import/no-unresolved
+import { faBars, faXmarkLarge } from "@awesome.me/kit-aaa9bcafa6/icons/classic/regular"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 
-import { device } from "../../util/breakpoints"
+import { DarkModeSwitch, Divider, NavList, Profile, Socials } from "./StyledComponents"
 
-// We'll define our styled components here
-const NavbarContainer = styled.div`
+import { device } from "../../util/breakpoints"
+import useHandleClickOutside from "../../util/customHooks/useHandleClickOutside"
+
+const NavbarWrapper = styled.nav`
 	display: flex;
-	flex: 1;
-	height: 80px;
-	padding: 0px ${theme => theme.spacing[3]};
-	justify-content: space-between;
-	align-items: center;
-	gap: ${theme => theme.spacing[4]};
-	background: var(--surface-surface-primary, #f4f5f5); // todo change color to theme background
-	@media ${device.laptop} {
+	flex-direction: ${isMobile ? "column-reverse" : "column"};
+	@media ${device.biggerThanTablet} {
 		display: none;
 	}
 `
 
-const Logo = styled.div`
-	// Add your styles for the logo here
+const NavbarContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	min-height: 80px;
+	padding: 0 ${({ theme }) => theme.spacing[3]};
+	gap: ${({ theme }) => theme.spacing[4]};
+
+	.actions {
+		display: flex;
+		gap: ${({ theme }) => theme.spacing[1.5]};
+		svg {
+			font-size: 20px;
+			padding: 8px;
+			color: ${props => props.theme.text.primary};
+			cursor: pointer;
+		}
+	}
 `
 
-const BurgerButton = styled.button``
-
-const FullScreenMenu = styled.div`
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: ${props => (props.isOpen ? "100%" : "0")};
-	height: 100%;
-	background: rgba(0, 0, 0, 0.9);
-	transition: width 0.3s ease;
+const CollapsableNavMenu = styled.div`
+	max-height: ${props => (props.$isOpen ? "500px" : "0")};
 	z-index: 100;
-`
-
-const NavList = styled.ul`
-	// Style your navigation list here
-`
-
-const NavItem = styled.li`
-	// And individual navigation items here
+	display: flex;
+	flex-direction: ${isMobile ? "column-reverse" : "column"};
+	align-items: center;
+	gap: ${({ theme }) => theme.spacing[3]};
+	padding: ${({ $isOpen, theme }) => ($isOpen ? `${theme.spacing[4]} ${theme.spacing[4]}` : `0 ${theme.spacing[4]}`)};
+	overflow: hidden;
+	transition:
+		max-height 0.3s ease-in-out,
+		padding 0.3s ease-in-out;
 `
 
 // The main Navbar component starts here
 const Navbar = () => {
+	const navRef = useRef()
 	const [isMenuOpen, setMenuOpen] = useState(false)
 
-	const toggleMenu = () => {
-		setMenuOpen(!isMenuOpen)
-	}
+	useHandleClickOutside(navRef, isMenuOpen, () => setMenuOpen(false))
+
+	const toggleMenu = () => setMenuOpen(!isMenuOpen)
 
 	return (
-		<NavbarContainer>
-			<Logo>Your Logo</Logo>
-			<BurgerButton isOpen={isMenuOpen} onClick={toggleMenu}>
-				{/* Here you can add a burger icon */}☰
-			</BurgerButton>
-			<FullScreenMenu isOpen={isMenuOpen}>
-				<NavList>
-					{/* Populate this with your actual navigation items */}
-					<NavItem>Home</NavItem>
-					<NavItem>About</NavItem>
-					<NavItem>Services</NavItem>
-					<NavItem>Contact</NavItem>
-				</NavList>
-			</FullScreenMenu>
-		</NavbarContainer>
+		<NavbarWrapper ref={navRef}>
+			<NavbarContainer>
+				<Profile />
+				<div className="actions">
+					<DarkModeSwitch />
+					<FontAwesomeIcon id="openMenuBtn" icon={isMenuOpen ? faXmarkLarge : faBars} onClick={toggleMenu} />
+				</div>
+			</NavbarContainer>
+			<CollapsableNavMenu $isOpen={isMenuOpen}>
+				<NavList onItemClick={() => setMenuOpen(false)} />
+				<Divider />
+				<Socials />
+			</CollapsableNavMenu>
+		</NavbarWrapper>
 	)
 }
 

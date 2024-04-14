@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react"
-import { HiChevronDoubleLeft as CollapseIcon, HiChevronDoubleRight as ExpandIcon } from "react-icons/hi2"
-import styled from "styled-components"
-// eslint-disable-next-line import/no-unresolved
-import { faHouse, faBriefcase, faUser, faEnvelope, faSun, faAt } from "@awesome.me/kit-aaa9bcafa6/icons/classic/thin"
-// eslint-disable-next-line import/no-unresolved
-import { faLinkedIn, faGithub } from "@awesome.me/kit-aaa9bcafa6/icons/brands/thin"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import styled, { css } from "styled-components"
 
-import { bottomNavigationItems, NavigationItem, topNavigationItems } from "./navigation.helpers"
+import { StyledProfilePicture } from "./ProfilePicture"
+import {
+	DarkModeSwitch,
+	Divider,
+	NavList,
+	Profile,
+	Socials,
+	StyledNavItem,
+	StyledSidebarProfile,
+	StyledSidebarSocials,
+} from "./StyledComponents"
 
-import { ReactComponent as Logo } from "../../logo.svg"
+import { useTheme } from "../../styles/ThemeContext"
 import { device, screenSize } from "../../util/breakpoints"
-import useHandleResize from "../../util/customHooks/useHandleResize"
-
-const SidebarListWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	flex: 1;
-	padding-bottom: 30px;
-`
 
 export const SidebarItemList = styled.ul`
 	list-style: none;
@@ -41,7 +36,7 @@ export const SidebarItemList = styled.ul`
 			gap: ${props => props.theme.spacing[1.5]};
 			appearance: none;
 			text-decoration: none;
-			color: ${props => props.theme.textColors.primary};
+			color: ${props => props.theme.text.primary};
 			cursor: pointer;
 			&.active {
 				box-shadow: inset 3px 0 ${props => props.theme.colors.primary};
@@ -57,109 +52,116 @@ export const SidebarItemList = styled.ul`
 			}
 			svg,
 			img {
-				min-width: ${props => props.theme.fontSize.xxl};
-				min-height: ${props => props.theme.fontSize.xxl};
+				min-width: ${props => props.theme.font.xxl};
+				min-height: ${props => props.theme.font.xxl};
 			}
-			font-size: ${props => props.theme.fontSize.l};
+			font-size: ${props => props.theme.font.l};
 		}
 	}
+`
+
+const StyledNavigationListWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: ${props => props.theme.spacing[4]};
+	align-self: stretch;
+	align-items: center;
+	flex: 1;
 `
 
 const SidebarWrapper = styled.div`
-	width: 0;
-	height: 100%;
-	background: ${props => props.theme.colors.white};
-	box-shadow: 6px 8px 16px 0 rgba(0, 0, 0, 0.16);
 	transition: width 0.3s ease-in-out;
 	z-index: 500;
-	position: relative;
-	display: flex;
-	flex-direction: column;
+	display: none;
+	width: 0;
+	overflow: scroll;
 
-	@media ${device.laptop} {
-		width: ${props => (props.$expanded ? "220px" : "80px")};
-	}
-
-	${SidebarItemList} {
-		a span {
-			display: ${props => (props.$expanded ? "block" : "none")};
-		}
-	}
-
-	.logoPlacing {
+	@media ${device.biggerThanTablet} {
 		display: flex;
-		min-height: 56px;
-		justify-content: center;
+		flex-direction: column;
 		align-items: center;
-		align-self: stretch;
-
-		@media ${device.tablet} {
-			min-height: 64px;
-		}
-		@media ${device.laptop} {
-			min-height: 72px;
-		}
-
-		svg,
-		img {
-			height: 30px;
-		}
+		width: ${props => (props.$expanded ? "220px" : `calc(100px - (2 * ${props.theme.spacing[3]}))`)};
+		padding: ${props => props.theme.spacing[5]} ${props => props.theme.spacing[3]};
+		gap: ${props => props.theme.spacing[4]};
 	}
+
+	${props =>
+		props.$expanded
+			? css`
+					${Divider} {
+						display: none;
+					}
+					${StyledNavigationListWrapper} {
+						flex-direction: column-reverse;
+					}
+					${StyledSidebarSocials} {
+						flex-direction: unset;
+					}
+				`
+			: css`
+					${SidebarItemList} {
+						a span {
+							display: none;
+						}
+					}
+					${StyledNavItem} span {
+						display: none;
+					}
+					${StyledSidebarProfile} {
+						${StyledProfilePicture} {
+							width: 48px;
+							height: 48px;
+						}
+						.content {
+							display: none;
+						}
+					}
+				`}
 `
 
-const Profile = styled.div``
-
-const NavItem = styled.div``
-
-const Sidebar = () => {
-	const [isSidebarExpanded, setSidebarExpanded] = useState(window.innerWidth >= 1024)
-	const { width: windowWidth } = useHandleResize()
+const useSidebarExpandable = () => {
+	const [isSidebarExpandable, setSidebarExpandable] = useState(window.innerWidth >= screenSize.laptopL)
 
 	useEffect(() => {
-		if (windowWidth < parseInt(screenSize.laptopL.replace("px", ""))) {
-			setSidebarExpanded(false)
-		} else {
-			setSidebarExpanded(true)
+		const handleResize = () => {
+			if (window.innerWidth < screenSize.laptopL) {
+				setSidebarExpandable(false)
+			} else {
+				setSidebarExpandable(true)
+			}
 		}
-	}, [windowWidth])
+
+		window.addEventListener("resize", handleResize)
+
+		return () => window.removeEventListener("resize", handleResize)
+	}, [])
+
+	return isSidebarExpandable
+}
+
+const Sidebar = () => {
+	const [isSidebarExpanded, setSidebarExpanded] = useState(true)
+	const isSidebarExpandable = useSidebarExpandable()
+
+	const { theme } = useTheme()
 
 	const toggleSidebar = () => {
-		setSidebarExpanded(!isSidebarExpanded)
+		if (!isSidebarExpanded && isSidebarExpandable) {
+			setSidebarExpanded(true)
+		} else if (isSidebarExpandable) {
+			setSidebarExpanded(false)
+		}
 	}
 
 	return (
-		<SidebarWrapper $expanded={isSidebarExpanded}>
-			<Profile>
-				<Logo />
-				<div>
-					<span>Fritz Meyer</span>
-					<span>Product Developer</span>
-				</div>
-			</Profile>
-			<div className="inline-icons">
-				<FontAwesomeIcon icon={faAt} />
-				<FontAwesomeIcon icon={faLinkedIn} />
-				<FontAwesomeIcon icon={faGithub} />
-			</div>
-			<div>
-				<NavItem>
-					<FontAwesomeIcon icon={faHouse} />
-					<span>Homepage</span>
-				</NavItem>
-				<NavItem>
-					<FontAwesomeIcon icon={faBriefcase} />
-					<span>Projects</span>
-				</NavItem>
-				<NavItem>
-					<FontAwesomeIcon icon={faUser} />
-					<span>About</span>
-				</NavItem>
-				<NavItem>
-					<FontAwesomeIcon icon={faEnvelope} />
-					<span>Contact</span>
-				</NavItem>
-			</div>
-			<FontAwesomeIcon icon={faSun} className={"modeSwitch"} />
+		<SidebarWrapper $expanded={isSidebarExpanded && isSidebarExpandable} $theme={theme}>
+			<Profile type="sidebar" onClick={toggleSidebar} />
+			<StyledNavigationListWrapper>
+				<NavList />
+				<Divider />
+				<Socials type="sidebar" />
+			</StyledNavigationListWrapper>
+			<DarkModeSwitch />
 		</SidebarWrapper>
 	)
 }

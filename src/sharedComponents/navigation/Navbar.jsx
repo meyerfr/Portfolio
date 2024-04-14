@@ -32,8 +32,8 @@ const NavbarContainer = styled.nav`
 	}
 	svg,
 	img {
-		width: ${props => props.theme.fontSize.xxl};
-		height: ${props => props.theme.fontSize.xxl};
+		width: ${props => props.theme.font.xxl};
+		height: ${props => props.theme.font.xxl};
 	}
 `
 
@@ -74,7 +74,7 @@ const Navbar = () => {
 	const { width: windowWidth } = useHandleResize()
 
 	useEffect(() => {
-		if (windowWidth >= parseInt(screenSize.laptop.replace("px", ""))) {
+		if (windowWidth >= screenSize.laptop) {
 			setOffCanvasOpen(false)
 		}
 	}, [windowWidth])

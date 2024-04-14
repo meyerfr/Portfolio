@@ -22,19 +22,19 @@ const getHeaderStyles = () => {
 			padding: 0;
 		}
 		h1 {
-			font-size: 2.2em;
+			font-size: 2.2rem;
 		}
 		h2 {
-			font-size: 1.7em;
+			font-size: 1.75rem;
 		}
 		h3 {
-			font-size: 1.3em;
+			font-size: 1.15rem;
 		}
 		h4 {
-			font-size: 1.17em;
+			font-size: 1.05rem;
 		}
 		h5 {
-			font-size: 0.9em;
+			font-size: 0.85rem;
 		}
 	`
 }
@@ -92,95 +92,65 @@ const getDefaultInputStyles = () => css`
 			//clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 		}
 	}
+
+	label {
+		font-size: 1.1em;
+	}
+	input,
+	textarea {
+		padding: ${({ theme }) => theme.spacing[2]};
+
+		display: flex;
+		padding: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]};
+		align-items: center;
+		gap: ${({ theme }) => theme.spacing[1]};
+		align-self: stretch;
+
+		border: 1px solid ${({ theme }) => theme.input.border};
+		border-radius: ${({ theme }) => theme.radius.m};
+		background: ${({ theme }) => theme.input.bg};
+		font-size: ${({ theme }) => theme.font.m};
+		&::placeholder {
+			font-size: ${({ theme }) => theme.font.s};
+			font-family: ${({ theme }) => theme.typography.fontFamily};
+			color: ${({ theme }) => theme.input.placeholder};
+		}
+		&:focus-visible {
+			border-color: transparent;
+			outline: 2px solid #87adf5;
+		}
+	}
 `
 
-const getFontStyles = () => {
-	return css`
-		${getHeaderStyles}
-
-		label, input, textarea, a {
-			font-family: ${props => props.theme.typography.fontFamily};
-			font-size: 1em;
-			&.tiny {
-				font-size: ${props => props.theme.fontSize.xs};
-				@media ${device.tablet} {
-					font-size: ${props => props.theme.fontSize.s};
-				}
-			}
-			&.small {
-				font-size: ${props => props.theme.fontSize.s};
-				@media ${device.tablet} {
-					font-size: ${props => props.theme.fontSize.m};
-				}
-			}
-			&.large {
-				font-size: ${props => props.theme.fontSize.l};
-				@media ${device.tablet} {
-					font-size: ${props => props.theme.fontSize.xl};
-				}
-			}
-			&.x-large {
-				font-size: ${props => props.theme.fontSize.l};
-				@media ${device.tablet} {
-					font-size: ${props => props.theme.fontSize.xl};
-				}
-				@media ${device.tablet} {
-					font-size: ${props => props.theme.fontSize.xxl};
-				}
-			}
-		}
-
-		a {
-			text-decoration: none;
-			color: ${props => props.theme.colors.blue400};
-			&:hover {
-				text-decoration: underline;
-			}
-			&:focus {
-				color: ${props => props.theme.colors.blue600};
-			}
-		}
-	`
-}
+// const generateGapStyles = theme => {
+// 	return Object.keys(theme.spacing).map(key => {
+// 		// Create a CSS block for each spacing key
+// 		return css`
+// 			.gap-${key.replace(".", "-") /* Replace decimal points for valid CSS class names */} {
+// 				display: grid;
+// 				gap: ${props => props.theme.spacing[key]};
+// 			}
+// 		`
+// 	})
+// }
 
 const GlobalStyle = createGlobalStyle`
+	:root{
+    font-size: 16px;
+    @media ${device.biggerThanTablet} {
+      font-size: 18px;
+    }
+	}
   body {
     margin: 0;
     padding: 0;
     font-family: ${props => props.theme.typography.fontFamily};
-	  font-size: 16px;
-	  color: ${({ theme }) => theme.textColors.primary};
-    @media ${device.tablet} {
-      font-size: 18px;
-    }
+	  color: ${({ theme }) => theme.text.primary};
     // You can add more global styles here
   }
-
-  // ///* width */
-  // ::-webkit-scrollbar {
-  //   width: 4px;
-  // }
-  // //
-  // ///* Track */
-  // ::-webkit-scrollbar-track {
-  //   background: color-mix(in oklch, ${props => props.theme.colors.gray100} 100%, white 30%);
-  // }
-  // //
-  // ///* Handle */
-  // ::-webkit-scrollbar-thumb {
-  //   background: color-mix(in oklch, ${props => props.theme.colors.gray200} 100%, white 10%);
-  //   background: ${props => props.theme.colors.gray300};
-	//   border-radius: 6px;
-  // }
-  // //
-  // ///* Handle on hover */
-  // ::-webkit-scrollbar-thumb:hover {
-  //   background: color-mix(in oklch, ${props => props.theme.colors.gray200} 100%, blakc 10%);
-  // }
-	
-  ${getFontStyles}
-  
+	${getHeaderStyles}
   ${getDefaultInputStyles}
 `
+// ${({ theme }) => generateGapStyles(theme)}
 
 export default GlobalStyle

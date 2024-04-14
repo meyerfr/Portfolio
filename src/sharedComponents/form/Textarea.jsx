@@ -22,7 +22,7 @@ const StyledTextarea = styled(InputWrapper)`
 			}
 		}
 		.charCountInfo {
-			font-size: ${props => props.theme.fontSize.xs};
+			font-size: ${props => props.theme.font.xs};
 			position: absolute;
 			bottom: 6px;
 			right: 8px;
