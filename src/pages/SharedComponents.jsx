@@ -8,6 +8,9 @@ export const StyledSection = styled.section`
 	align-items: flex-start;
 	gap: ${({ theme }) => theme.spacing[3]};
 	align-self: stretch;
+	.header:has(h1) h2 {
+		color: ${({ theme }) => theme.text.secondary};
+	}
 	.header {
 		display: flex;
 		flex-direction: column;
@@ -22,9 +25,9 @@ export const StyledSection = styled.section`
 			//font-size: 24px;
 			font-weight: 500;
 		}
-		h1:has(+ h2) {
-			color: ${({ theme }) => theme.text.secondary};
-		}
+		//h1:has(+ h2) {
+		// 	color: ${({ theme }) => theme.text.secondary};
+		//}
 	}
 	> .content {
 		display: flex;

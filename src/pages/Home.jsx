@@ -42,7 +42,7 @@ const Home = () => {
 				<StyledLargerSpacingSection>
 					<div className="header">
 						{/* eslint-disable-next-line react/no-unescaped-entities */}
-						<h1>Hello, I'm Fritz</h1>
+						<h1>Hey, I'm Fritz</h1>
 						<h2>Digital Product Developer</h2>
 					</div>
 					<StyledLocation>
